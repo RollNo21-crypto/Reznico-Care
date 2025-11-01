@@ -1,8 +1,10 @@
 import { SignUp } from "@clerk/clerk-react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { UserPlus, ArrowLeft, AlertCircle } from "lucide-react"
+import { getCrossDomainUrls } from '@/utils/domain-detection'
 
 export function Signup() {
+  const domainUrls = getCrossDomainUrls()
   return (
     <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-black to-gray-900 p-4">
       <div className="w-full max-w-md space-y-6">
@@ -60,7 +62,7 @@ export function Signup() {
             <ArrowLeft className="h-4 w-4" />
             Back to Home
           </a>
-          <a href="/employee-login" className="text-[#D4FF00] hover:text-[#C4EF00] font-medium transition-colors">
+          <a href={domainUrls.employee} className="text-[#D4FF00] hover:text-[#C4EF00] font-medium transition-colors">
             Already have an account?
           </a>
         </div>

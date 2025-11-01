@@ -7,6 +7,12 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import CustomerLayout from '@/components/customer/customer-layout'
+import ServiceTimeline from '@/components/service-timeline'
+import DigitalVehicleInspection from '@/components/digital-vehicle-inspection'
+import DigitalGlovebox from '@/components/digital-glovebox'
+import LoyaltyProgram from '@/components/loyalty-program'
+import RenewalReminders from '@/components/renewal-reminders'
+import DocumentManagement from '@/components/document-management'
 import { 
   Car, 
   Calendar, 
@@ -30,7 +36,11 @@ import {
   Menu,
   Edit,
   Save,
-  X
+  X,
+  FolderOpen,
+  Trophy,
+  ClipboardCheck,
+  Database
 } from 'lucide-react'
 
 export default function CustomerDashboard() {
@@ -431,15 +441,42 @@ export default function CustomerDashboard() {
 
             {/* Mobile-Optimized Main Content */}
             <div className="space-y-4">
-              {/* Quick Actions - Mobile App Style */}
-              <div className="grid grid-cols-2 gap-3 md:hidden">
-                <Button className="h-16 bg-[#D4FF00]/10 border border-[#D4FF00]/30 text-[#D4FF00] hover:bg-[#D4FF00]/20 flex flex-col gap-1">
-                  <Calendar className="h-5 w-5" />
-                  <span className="text-xs">Book Service</span>
+              {/* Quick Actions - Enhanced with New Features */}
+              <div className="grid grid-cols-2 gap-3 md:grid-cols-5">
+                <Button 
+                  onClick={() => setCurrentView('services')}
+                  className="h-16 bg-[#D4FF00]/10 border border-[#D4FF00]/30 text-[#D4FF00] hover:bg-[#D4FF00]/20 flex flex-col gap-1"
+                >
+                  <ClipboardCheck className="h-5 w-5" />
+                  <span className="text-xs">Service Timeline</span>
                 </Button>
-                <Button className="h-16 bg-gray-800 border border-gray-700 text-gray-300 hover:bg-gray-700 flex flex-col gap-1">
+                <Button 
+                  onClick={() => setCurrentView('glovebox')}
+                  className="h-16 bg-blue-500/10 border border-blue-500/30 text-blue-400 hover:bg-blue-500/20 flex flex-col gap-1"
+                >
+                  <FolderOpen className="h-5 w-5" />
+                  <span className="text-xs">Digital Glovebox</span>
+                </Button>
+                <Button 
+                  onClick={() => setCurrentView('loyalty')}
+                  className="h-16 bg-purple-500/10 border border-purple-500/30 text-purple-400 hover:bg-purple-500/20 flex flex-col gap-1"
+                >
+                  <Trophy className="h-5 w-5" />
+                  <span className="text-xs">Rewards</span>
+                </Button>
+                <Button 
+                  onClick={() => setCurrentView('documents')}
+                  className="h-16 bg-green-500/10 border border-green-500/30 text-green-400 hover:bg-green-500/20 flex flex-col gap-1"
+                >
+                  <Database className="h-5 w-5" />
+                  <span className="text-xs">Documents</span>
+                </Button>
+                <Button 
+                  onClick={() => setCurrentView('invoices')}
+                  className="h-16 bg-gray-800 border border-gray-700 text-gray-300 hover:bg-gray-700 flex flex-col gap-1"
+                >
                   <FileText className="h-5 w-5" />
-                  <span className="text-xs">View Invoices</span>
+                  <span className="text-xs">Invoices</span>
                 </Button>
               </div>
 
@@ -585,13 +622,27 @@ export default function CustomerDashboard() {
         {/* Profile Section */}
         {currentView === 'profile' && renderProfileSection()}
         
-        {/* Services Section */}
+        {/* Services Section - Service Timeline */}
         {currentView === 'services' && (
-          <div className="text-center py-8">
-            <Calendar className="h-16 w-16 text-[#D4FF00] mx-auto mb-4" />
-            <h2 className="text-xl font-semibold text-white mb-2">Services</h2>
-            <p className="text-gray-400">Service booking functionality coming soon!</p>
+          <div className="space-y-6">
+            <ServiceTimeline />
+            <RenewalReminders />
           </div>
+        )}
+        
+        {/* Digital Glovebox Section */}
+        {currentView === 'glovebox' && (
+          <DigitalGlovebox />
+        )}
+        
+        {/* Loyalty Program Section */}
+        {currentView === 'loyalty' && (
+          <LoyaltyProgram />
+        )}
+        
+        {/* Document Management Section */}
+        {currentView === 'documents' && (
+          <DocumentManagement />
         )}
         
         {/* Invoices Section */}
@@ -606,53 +657,65 @@ export default function CustomerDashboard() {
 
       {/* Enhanced Mobile Bottom Navigation */}
       <nav className="fixed bottom-0 left-0 right-0 z-20 bg-gray-900/95 backdrop-blur border-t border-gray-800 md:hidden">
-        <div className="grid grid-cols-4 h-20 px-2">
+        <div className="grid grid-cols-5 h-20 px-1">
           <Button 
             variant="ghost" 
             onClick={() => setCurrentView('home')}
-            className={`flex flex-col items-center justify-center gap-1 rounded-xl mx-1 ${
+            className={`flex flex-col items-center justify-center gap-1 rounded-xl mx-0.5 ${
               currentView === 'home' 
                 ? 'text-[#D4FF00] bg-[#D4FF00]/10' 
                 : 'text-gray-400 hover:text-[#D4FF00] hover:bg-gray-800'
             }`}
           >
-            <Home className="h-6 w-6" />
+            <Home className="h-5 w-5" />
             <span className="text-xs font-medium">Home</span>
           </Button>
           <Button 
             variant="ghost" 
             onClick={() => setCurrentView('services')}
-            className={`flex flex-col items-center justify-center gap-1 rounded-xl mx-1 ${
+            className={`flex flex-col items-center justify-center gap-1 rounded-xl mx-0.5 ${
               currentView === 'services' 
                 ? 'text-[#D4FF00] bg-[#D4FF00]/10' 
                 : 'text-gray-400 hover:text-[#D4FF00] hover:bg-gray-800'
             }`}
           >
-            <Calendar className="h-6 w-6" />
-            <span className="text-xs font-medium">Services</span>
+            <ClipboardCheck className="h-5 w-5" />
+            <span className="text-xs font-medium">Service</span>
           </Button>
           <Button 
             variant="ghost" 
-            onClick={() => setCurrentView('invoices')}
-            className={`flex flex-col items-center justify-center gap-1 rounded-xl mx-1 ${
-              currentView === 'invoices' 
+            onClick={() => setCurrentView('glovebox')}
+            className={`flex flex-col items-center justify-center gap-1 rounded-xl mx-0.5 ${
+              currentView === 'glovebox' 
                 ? 'text-[#D4FF00] bg-[#D4FF00]/10' 
                 : 'text-gray-400 hover:text-[#D4FF00] hover:bg-gray-800'
             }`}
           >
-            <FileText className="h-6 w-6" />
-            <span className="text-xs font-medium">Invoices</span>
+            <FolderOpen className="h-5 w-5" />
+            <span className="text-xs font-medium">Glovebox</span>
+          </Button>
+          <Button 
+            variant="ghost" 
+            onClick={() => setCurrentView('documents')}
+            className={`flex flex-col items-center justify-center gap-1 rounded-xl mx-0.5 ${
+              currentView === 'documents' 
+                ? 'text-[#D4FF00] bg-[#D4FF00]/10' 
+                : 'text-gray-400 hover:text-[#D4FF00] hover:bg-gray-800'
+            }`}
+          >
+            <Database className="h-5 w-5" />
+            <span className="text-xs font-medium">Documents</span>
           </Button>
           <Button 
             variant="ghost" 
             onClick={() => setCurrentView('profile')}
-            className={`flex flex-col items-center justify-center gap-1 rounded-xl mx-1 ${
+            className={`flex flex-col items-center justify-center gap-1 rounded-xl mx-0.5 ${
               currentView === 'profile' 
                 ? 'text-[#D4FF00] bg-[#D4FF00]/10' 
                 : 'text-gray-400 hover:text-[#D4FF00] hover:bg-gray-800'
             }`}
           >
-            <User className="h-6 w-6" />
+            <User className="h-5 w-5" />
             <span className="text-xs font-medium">Profile</span>
           </Button>
         </div>

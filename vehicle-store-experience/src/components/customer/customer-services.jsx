@@ -164,58 +164,58 @@ export function CustomerServices() {
           </div>
 
           {/* Services List */}
-          <div className="space-y-4">
+          <div className="space-y-3 sm:space-y-4">
             {filteredServices.length > 0 ? (
               filteredServices.map((service) => (
                 <Card key={service.id} className="bg-gray-800/50 border-gray-700 backdrop-blur-sm">
-                  <CardContent className="p-6">
-                    <div className="flex items-start justify-between mb-4">
-                      <div className="flex items-center gap-3">
-                        <div className="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center">
-                          <Wrench className="h-6 w-6 text-blue-400" />
+                  <CardContent className="p-3 sm:p-4 lg:p-6">
+                    <div className="flex items-start justify-between mb-3 sm:mb-4">
+                      <div className="flex items-center gap-2 sm:gap-3 flex-1 min-w-0">
+                        <div className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-blue-500/20 rounded-lg sm:rounded-xl flex items-center justify-center flex-shrink-0">
+                          <Wrench className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6 text-blue-400" />
                         </div>
-                        <div>
-                          <h3 className="text-lg font-semibold text-white">{service.type}</h3>
-                          <p className="text-sm text-gray-400">{service.description}</p>
+                        <div className="min-w-0 flex-1">
+                          <h3 className="text-sm sm:text-base lg:text-lg font-semibold text-white truncate">{service.type}</h3>
+                          <p className="text-xs sm:text-sm text-gray-400 line-clamp-1">{service.description}</p>
                         </div>
                       </div>
                       {getStatusBadge(service.status)}
                     </div>
 
-                    <div className="grid grid-cols-2 gap-4 mb-4">
-                      <div className="bg-gray-800/50 rounded-xl p-3">
-                        <div className="flex items-center gap-2 mb-1">
-                          <Calendar className="h-4 w-4 text-gray-400" />
-                          <span className="text-sm text-gray-400">Date</span>
+                    <div className="grid grid-cols-2 gap-2 sm:gap-3 lg:gap-4 mb-3 sm:mb-4">
+                      <div className="bg-gray-800/50 rounded-lg sm:rounded-xl p-2 sm:p-3">
+                        <div className="flex items-center gap-1 sm:gap-2 mb-1">
+                          <Calendar className="h-3 w-3 sm:h-4 sm:w-4 text-gray-400 flex-shrink-0" />
+                          <span className="text-xs sm:text-sm text-gray-400">Date</span>
                         </div>
-                        <p className="text-white font-medium">{service.date}</p>
+                        <p className="text-xs sm:text-sm lg:text-base text-white font-medium truncate">{service.date}</p>
                       </div>
 
-                      <div className="bg-gray-800/50 rounded-xl p-3">
-                        <div className="flex items-center gap-2 mb-1">
-                          <Clock className="h-4 w-4 text-gray-400" />
-                          <span className="text-sm text-gray-400">Duration</span>
+                      <div className="bg-gray-800/50 rounded-lg sm:rounded-xl p-2 sm:p-3">
+                        <div className="flex items-center gap-1 sm:gap-2 mb-1">
+                          <Clock className="h-3 w-3 sm:h-4 sm:w-4 text-gray-400 flex-shrink-0" />
+                          <span className="text-xs sm:text-sm text-gray-400">Duration</span>
                         </div>
-                        <p className="text-white font-medium">{service.duration}</p>
+                        <p className="text-xs sm:text-sm lg:text-base text-white font-medium truncate">{service.duration}</p>
                       </div>
                     </div>
 
-                    <div className="flex items-center justify-between mb-4">
-                      <div>
-                        <p className="text-sm text-gray-400">Technician</p>
-                        <p className="text-white font-medium">{service.technician}</p>
+                    <div className="flex items-center justify-between mb-3 sm:mb-4">
+                      <div className="min-w-0 flex-1">
+                        <p className="text-xs sm:text-sm text-gray-400">Technician</p>
+                        <p className="text-sm sm:text-base text-white font-medium truncate">{service.technician}</p>
                       </div>
-                      <div className="text-right">
-                        <p className="text-sm text-gray-400">Cost</p>
-                        <p className="text-xl font-bold text-[#D4FF00]">${service.cost}</p>
+                      <div className="text-right flex-shrink-0">
+                        <p className="text-xs sm:text-sm text-gray-400">Cost</p>
+                        <p className="text-lg sm:text-xl font-bold text-[#D4FF00]">${service.cost}</p>
                       </div>
                     </div>
 
                     {service.rating && (
-                      <div className="flex items-center gap-2 mb-4">
-                        <span className="text-sm text-gray-400">Rating:</span>
+                      <div className="flex items-center gap-2 mb-3 sm:mb-4">
+                        <span className="text-xs sm:text-sm text-gray-400">Rating:</span>
                         {renderStars(service.rating)}
-                        <span className="text-sm text-gray-400">({service.rating}/5)</span>
+                        <span className="text-xs sm:text-sm text-gray-400">({service.rating}/5)</span>
                       </div>
                     )}
 
@@ -223,17 +223,18 @@ export function CustomerServices() {
                       <Button 
                         variant="outline" 
                         size="sm" 
-                        className="flex-1 border-gray-700 bg-gray-800/50 text-white hover:bg-gray-800 rounded-2xl"
+                        className="flex-1 border-gray-700 bg-gray-800/50 text-white hover:bg-gray-800 rounded-xl sm:rounded-2xl text-xs sm:text-sm h-8 sm:h-9"
                       >
-                        <Eye className="h-4 w-4 mr-2" />
-                        View Details
+                        <Eye className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2" />
+                        <span className="hidden sm:inline">View Details</span>
+                        <span className="sm:hidden">View</span>
                       </Button>
                       {service.status === 'Completed' && !service.rating && (
                         <Button 
                           size="sm" 
-                          className="bg-[#D4FF00] hover:bg-[#C4EF00] text-black rounded-2xl"
+                          className="bg-[#D4FF00] hover:bg-[#C4EF00] text-black rounded-xl sm:rounded-2xl text-xs sm:text-sm h-8 sm:h-9 px-2 sm:px-3"
                         >
-                          <Star className="h-4 w-4 mr-2" />
+                          <Star className="h-3 w-3 sm:h-4 sm:w-4 mr-1 sm:mr-2" />
                           Rate
                         </Button>
                       )}
@@ -243,16 +244,16 @@ export function CustomerServices() {
               ))
             ) : (
               <Card className="bg-gray-800/50 border-gray-700 backdrop-blur-sm">
-                <CardContent className="p-8 text-center">
-                  <Wrench className="h-16 w-16 text-gray-600 mx-auto mb-4" />
-                  <h3 className="text-lg font-semibold text-white mb-2">No Services Found</h3>
-                  <p className="text-gray-400 mb-4">
+                <CardContent className="p-6 sm:p-8 text-center">
+                  <Wrench className="h-12 w-12 sm:h-16 sm:w-16 text-gray-600 mx-auto mb-4" />
+                  <h3 className="text-base sm:text-lg font-semibold text-white mb-2">No Services Found</h3>
+                  <p className="text-sm sm:text-base text-gray-400 mb-4">
                     {searchTerm || filterStatus !== 'all' 
                       ? 'Try adjusting your search or filter criteria'
                       : 'You haven\'t booked any services yet'
                     }
                   </p>
-                  <Button className="bg-[#D4FF00] hover:bg-[#C4EF00] text-black rounded-2xl">
+                  <Button className="bg-[#D4FF00] hover:bg-[#C4EF00] text-black rounded-xl sm:rounded-2xl text-sm">
                     <Plus className="h-4 w-4 mr-2" />
                     Book Your First Service
                   </Button>

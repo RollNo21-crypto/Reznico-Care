@@ -3,11 +3,14 @@ import { SignIn, SignUp } from '@clerk/clerk-react'
 import { Card, CardContent } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { ArrowLeft, Users, Car, Shield, Clock } from 'lucide-react'
+import { getCrossDomainUrls } from '@/utils/domain-detection'
 import logo from '@/assets/logo-white.png'
 import bannerVideo from '@/assets/banner-video.mp4'
 
 export function CustomerLogin({ onNavigate }) {
   const [isSignUp, setIsSignUp] = useState(false)
+  const [copiedField, setCopiedField] = useState(null)
+  const domainUrls = getCrossDomainUrls()
 
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-br from-gray-900 via-black to-gray-900">
@@ -16,13 +19,13 @@ export function CustomerLogin({ onNavigate }) {
         <div className="flex items-center gap-3">
           <img src={logo} alt="Reznico Care" className="h-8 md:h-10 w-auto" />
         </div>
-        <button
-          onClick={() => onNavigate?.('home')}
+        <a
+          href={domainUrls.main}
           className="text-gray-400 hover:text-[#D4FF00] transition-colors inline-flex items-center gap-2 text-sm"
         >
           <ArrowLeft className="h-4 w-4" />
           <span className="hidden sm:inline">Back</span>
-        </button>
+        </a>
       </header>
 
       {/* Split Screen Content */}

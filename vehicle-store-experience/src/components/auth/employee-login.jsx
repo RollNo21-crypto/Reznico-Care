@@ -1,12 +1,14 @@
 import { SignIn, SignUp } from "@clerk/clerk-react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Users, ArrowLeft, ClipboardList, UserPlus, Package, Headphones } from "lucide-react"
+import { getCrossDomainUrls } from '@/utils/domain-detection'
 import logo from '@/assets/logo-white.png'
 import { useState } from 'react'
 
 export function EmployeeLogin({ onNavigate }) {
   const [isSignUp, setIsSignUp] = useState(false)
   const [copiedField, setCopiedField] = useState(null)
+  const domainUrls = getCrossDomainUrls()
 
   const copyToClipboard = (text, field) => {
     navigator.clipboard.writeText(text).then(() => {
@@ -229,15 +231,12 @@ export function EmployeeLogin({ onNavigate }) {
 
           {/* Switch Login Link */}
           <div className="text-center">
-            <button
-              onClick={() => {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-                onNavigate && onNavigate('admin-login');
-              }}
+            <a
+              href={domainUrls.admin}
               className="text-sm text-[#D4FF00] hover:text-[#C4EF00] font-medium transition-colors"
             >
               Admin Login →
-            </button>
+            </a>
           </div>
         </div>
       </div>

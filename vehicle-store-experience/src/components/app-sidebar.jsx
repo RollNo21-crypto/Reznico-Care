@@ -82,6 +82,21 @@ const getNavigation = (userRole) => {
       icon: Package,
     },
     {
+      title: "Parts Analytics",
+      view: "parts-analytics",
+      icon: BarChart3,
+    },
+    {
+      title: "Auto Reordering",
+      view: "reordering-dashboard",
+      icon: Package,
+    },
+    {
+      title: "Customer Portal",
+      view: "customer-portal",
+      icon: Users,
+    },
+    {
       title: "Reports",
       view: "reports",
       icon: BarChart3,
