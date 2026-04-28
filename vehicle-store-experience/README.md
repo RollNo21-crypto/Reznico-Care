@@ -1,4 +1,4 @@
-# Vehicle Store Experience 🚗
+# Reznico Care 🚗
 
 A modern, responsive vehicle service management application built with React, Vite, and Clerk authentication. This application provides a comprehensive platform for managing vehicle services, customer interactions, and business operations.
 
@@ -41,7 +41,7 @@ A modern, responsive vehicle service management application built with React, Vi
 1. **Clone the repository**
    ```bash
    git clone <repository-url>
-   cd vehicle-store-experience
+   cd reznico-care
    ```
 
 2. **Install dependencies**
@@ -66,7 +66,7 @@ A modern, responsive vehicle service management application built with React, Vi
 ## 📁 Project Structure
 
 ```
-vehicle-store-experience/
+reznico-care/
 ├── public/                 # Static assets
 ├── src/
 │   ├── components/        # React components

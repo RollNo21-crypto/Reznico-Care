@@ -14,6 +14,10 @@ import {
   Package,
   FileText,
   DollarSign,
+  Smartphone,
+  Brain,
+  Shield,
+  Truck,
 } from "lucide-react"
 import { useUser } from "@clerk/clerk-react"
 import logo from "@/assets/logo-white.png"
@@ -95,6 +99,31 @@ const getNavigation = (userRole) => {
       title: "Customer Portal",
       view: "customer-portal",
       icon: Users,
+    },
+    {
+      title: "Barcode Scanner",
+      view: "barcode-scanner",
+      icon: Package,
+    },
+    {
+      title: "Mobile Technician",
+      view: "mobile-technician-app",
+      icon: Smartphone,
+    },
+    {
+      title: "Predictive Maintenance",
+      view: "predictive-maintenance",
+      icon: Brain,
+    },
+    {
+      title: "Warranty Tracking",
+      view: "warranty-tracking",
+      icon: Shield,
+    },
+    {
+      title: "Supplier Performance",
+      view: "supplier-performance-dashboard",
+      icon: Truck,
     },
     {
       title: "Reports",

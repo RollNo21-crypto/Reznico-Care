@@ -99,15 +99,15 @@ const ReorderingDashboard = () => {
   const OverviewTab = () => (
     <div className="space-y-6">
       {/* Monitoring Status */}
-      <div className="bg-white rounded-lg shadow p-6">
+      <div className="bg-gray-800 rounded-lg shadow p-6">
         <div className="flex items-center justify-between mb-4">
-          <h3 className="text-lg font-semibold">Monitoring Status</h3>
+          <h3 className="text-lg font-semibold text-white">Monitoring Status</h3>
           <button
             onClick={handleToggleMonitoring}
             className={`px-4 py-2 rounded-lg font-medium ${
               isMonitoring 
-                ? 'bg-green-100 text-green-800 hover:bg-green-200' 
-                : 'bg-red-100 text-red-800 hover:bg-red-200'
+                ? 'bg-green-500/20 text-green-400 hover:bg-green-500/30' 
+                : 'bg-red-500/20 text-red-400 hover:bg-red-500/30'
             }`}
           >
             {isMonitoring ? 'Stop Monitoring' : 'Start Monitoring'}
@@ -115,7 +115,7 @@ const ReorderingDashboard = () => {
         </div>
         <div className="flex items-center space-x-2">
           <div className={`w-3 h-3 rounded-full ${isMonitoring ? 'bg-green-500' : 'bg-red-500'}`}></div>
-          <span className="text-sm text-gray-600">
+          <span className="text-sm text-gray-400">
             {isMonitoring ? 'Automatic reordering is active' : 'Automatic reordering is paused'}
           </span>
         </div>
@@ -124,58 +124,58 @@ const ReorderingDashboard = () => {
       {/* Key Metrics */}
       {reorderingReport && (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-          <div className="bg-white rounded-lg shadow p-6">
+          <div className="bg-gray-800 rounded-lg shadow p-6">
             <div className="flex items-center">
-              <div className="p-2 bg-blue-100 rounded-lg">
-                <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="p-2 bg-blue-500/20 rounded-lg">
+                <svg className="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
                 </svg>
               </div>
               <div className="ml-4">
-                <p className="text-sm font-medium text-gray-600">Total Orders (30d)</p>
-                <p className="text-2xl font-bold text-gray-900">{reorderingReport.totalOrders}</p>
+                <p className="text-sm font-medium text-gray-400">Total Orders (30d)</p>
+                <p className="text-2xl font-bold text-white">{reorderingReport.totalOrders}</p>
               </div>
             </div>
           </div>
 
-          <div className="bg-white rounded-lg shadow p-6">
+          <div className="bg-gray-800 rounded-lg shadow p-6">
             <div className="flex items-center">
-              <div className="p-2 bg-green-100 rounded-lg">
-                <svg className="w-6 h-6 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="p-2 bg-green-500/20 rounded-lg">
+                <svg className="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
                 </svg>
               </div>
               <div className="ml-4">
-                <p className="text-sm font-medium text-gray-600">Total Value</p>
-                <p className="text-2xl font-bold text-gray-900">₹{reorderingReport.totalValue.toLocaleString()}</p>
+                <p className="text-sm font-medium text-gray-400">Total Value</p>
+                <p className="text-2xl font-bold text-white">₹{reorderingReport.totalValue.toLocaleString()}</p>
               </div>
             </div>
           </div>
 
-          <div className="bg-white rounded-lg shadow p-6">
+          <div className="bg-gray-800 rounded-lg shadow p-6">
             <div className="flex items-center">
-              <div className="p-2 bg-purple-100 rounded-lg">
-                <svg className="w-6 h-6 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="p-2 bg-purple-500/20 rounded-lg">
+                <svg className="w-6 h-6 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
               <div className="ml-4">
-                <p className="text-sm font-medium text-gray-600">Auto Orders</p>
-                <p className="text-2xl font-bold text-gray-900">{reorderingReport.automaticOrders}</p>
+                <p className="text-sm font-medium text-gray-400">Auto Orders</p>
+                <p className="text-2xl font-bold text-white">{reorderingReport.automaticOrders}</p>
               </div>
             </div>
           </div>
 
-          <div className="bg-white rounded-lg shadow p-6">
+          <div className="bg-gray-800 rounded-lg shadow p-6">
             <div className="flex items-center">
-              <div className="p-2 bg-orange-100 rounded-lg">
-                <svg className="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <div className="p-2 bg-orange-500/20 rounded-lg">
+                <svg className="w-6 h-6 text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                 </svg>
               </div>
               <div className="ml-4">
-                <p className="text-sm font-medium text-gray-600">Manual Orders</p>
-                <p className="text-2xl font-bold text-gray-900">{reorderingReport.manualOrders}</p>
+                <p className="text-sm font-medium text-gray-400">Manual Orders</p>
+                <p className="text-2xl font-bold text-white">{reorderingReport.manualOrders}</p>
               </div>
             </div>
           </div>
@@ -183,20 +183,20 @@ const ReorderingDashboard = () => {
       )}
 
       {/* Recent Notifications */}
-      <div className="bg-white rounded-lg shadow p-6">
-        <h3 className="text-lg font-semibold mb-4">Recent Notifications</h3>
+      <div className="bg-gray-800 rounded-lg shadow p-6">
+        <h3 className="text-lg font-semibold mb-4 text-white">Recent Notifications</h3>
         <div className="space-y-3">
           {notifications.slice(0, 5).map((notification) => (
-            <div key={notification.id} className="flex items-start space-x-3 p-3 bg-gray-50 rounded-lg">
-              <div className={`w-2 h-2 rounded-full mt-2 ${notification.read ? 'bg-gray-300' : 'bg-blue-500'}`}></div>
+            <div key={notification.id} className="flex items-start space-x-3 p-3 bg-gray-700 rounded-lg">
+              <div className={`w-2 h-2 rounded-full mt-2 ${notification.read ? 'bg-gray-500' : 'bg-[#D4FF00]'}`}></div>
               <div className="flex-1">
-                <p className="text-sm font-medium text-gray-900">{notification.message}</p>
-                <p className="text-xs text-gray-500">{notification.timestamp.toLocaleString()}</p>
+                <p className="text-sm font-medium text-white">{notification.message}</p>
+                <p className="text-xs text-gray-400">{notification.timestamp.toLocaleString()}</p>
               </div>
               {!notification.read && (
                 <button
                   onClick={() => handleMarkNotificationRead(notification.id)}
-                  className="text-xs text-blue-600 hover:text-blue-800"
+                  className="text-xs text-[#D4FF00] hover:text-white"
                 >
                   Mark Read
                 </button>
@@ -219,35 +219,35 @@ const ReorderingDashboard = () => {
         </div>
       </div>
 
-      <div className="bg-white rounded-lg shadow overflow-hidden">
-        <table className="min-w-full divide-y divide-gray-200">
-          <thead className="bg-gray-50">
+      <div className="bg-gray-800 rounded-lg shadow overflow-hidden">
+        <table className="min-w-full divide-y divide-gray-700">
+          <thead className="bg-gray-700">
             <tr>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Order ID</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Part</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Supplier</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Quantity</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Total</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Order ID</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Part</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Supplier</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Quantity</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Total</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Status</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Actions</th>
             </tr>
           </thead>
-          <tbody className="bg-white divide-y divide-gray-200">
+          <tbody className="bg-gray-800 divide-y divide-gray-700">
             {pendingOrders.map((order) => (
               <tr key={order.orderId}>
-                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
                   {order.orderId}
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
                   {order.partName}
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
                   {order.supplier.name}
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
                   {order.quantity}
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
                   ₹{order.totalPrice.toLocaleString()}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
@@ -258,14 +258,14 @@ const ReorderingDashboard = () => {
                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                   <button
                     onClick={() => setSelectedOrder(order)}
-                    className="text-blue-600 hover:text-blue-900 mr-3"
+                    className="text-[#D4FF00] hover:text-white mr-3"
                   >
                     View
                   </button>
                   {order.status === 'sent' && (
                     <button
                       onClick={() => handleConfirmOrder(order.orderId, { supplierReference: 'REF-123', expectedDelivery: new Date() })}
-                      className="text-green-600 hover:text-green-900"
+                      className="text-green-400 hover:text-white"
                     >
                       Confirm
                     </button>
@@ -347,47 +347,47 @@ const ReorderingDashboard = () => {
     <div className="space-y-6">
       <h3 className="text-lg font-semibold">Inventory Status</h3>
       
-      <div className="bg-white rounded-lg shadow overflow-hidden">
-        <table className="min-w-full divide-y divide-gray-200">
-          <thead className="bg-gray-50">
+      <div className="bg-gray-800 rounded-lg shadow overflow-hidden">
+        <table className="min-w-full divide-y divide-gray-700">
+          <thead className="bg-gray-700">
             <tr>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Part</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Current Stock</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Min Stock</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Status</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Last Updated</th>
-              <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Actions</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Part</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Current Stock</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Min Stock</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Status</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Last Updated</th>
+              <th className="px-6 py-3 text-left text-xs font-medium text-gray-300 uppercase tracking-wider">Actions</th>
             </tr>
           </thead>
-          <tbody className="bg-white divide-y divide-gray-200">
+          <tbody className="bg-gray-800 divide-y divide-gray-700">
             {inventoryStatus.map((item) => {
               const rule = reorderRules.find(r => r.partId === item.id)
               const isLowStock = rule && item.currentStock <= rule.minStock
               
               return (
-                <tr key={item.id} className={isLowStock ? 'bg-red-50' : ''}>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                <tr key={item.id} className={isLowStock ? 'bg-red-900/20' : ''}>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
                     {item.name}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
                     {item.currentStock}
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-white">
                     {rule?.minStock || 'N/A'}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
-                      isLowStock ? 'bg-red-100 text-red-800' : 'bg-green-100 text-green-800'
+                      isLowStock ? 'bg-red-500/20 text-red-400' : 'bg-green-500/20 text-green-400'
                     }`}>
                       {isLowStock ? 'Low Stock' : 'In Stock'}
                     </span>
                   </td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-400">
                     {item.lastUpdated?.toLocaleDateString() || 'N/A'}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-medium">
                     {isLowStock && (
-                      <button className="text-blue-600 hover:text-blue-900">
+                      <button className="text-[#D4FF00] hover:text-white">
                         Reorder Now
                       </button>
                     )}
@@ -407,37 +407,37 @@ const ReorderingDashboard = () => {
       
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {supplierPerformance.map((supplier) => (
-          <div key={supplier.id} className="bg-white rounded-lg shadow p-6">
-            <h4 className="text-lg font-medium text-gray-900 mb-4">{supplier.name}</h4>
+          <div key={supplier.id} className="bg-gray-800 rounded-lg shadow p-6">
+            <h4 className="text-lg font-medium text-white mb-4">{supplier.name}</h4>
             
             <div className="space-y-3">
               <div className="flex justify-between">
-                <span className="text-sm text-gray-600">Total Orders:</span>
-                <span className="text-sm font-medium">{supplier.totalOrders}</span>
+                <span className="text-sm text-gray-400">Total Orders:</span>
+                <span className="text-sm font-medium text-white">{supplier.totalOrders}</span>
               </div>
               
               <div className="flex justify-between">
-                <span className="text-sm text-gray-600">Completion Rate:</span>
-                <span className="text-sm font-medium">{supplier.completionRate.toFixed(1)}%</span>
+                <span className="text-sm text-gray-400">Completion Rate:</span>
+                <span className="text-sm font-medium text-white">{supplier.completionRate.toFixed(1)}%</span>
               </div>
               
               <div className="flex justify-between">
-                <span className="text-sm text-gray-600">On-Time Rate:</span>
-                <span className="text-sm font-medium">{supplier.onTimeRate.toFixed(1)}%</span>
+                <span className="text-sm text-gray-400">On-Time Rate:</span>
+                <span className="text-sm font-medium text-white">{supplier.onTimeRate.toFixed(1)}%</span>
               </div>
               
               <div className="flex justify-between">
-                <span className="text-sm text-gray-600">Avg Delivery:</span>
-                <span className="text-sm font-medium">{supplier.averageDeliveryTime.toFixed(1)} days</span>
+                <span className="text-sm text-gray-400">Avg Delivery:</span>
+                <span className="text-sm font-medium text-white">{supplier.averageDeliveryTime.toFixed(1)} days</span>
               </div>
               
               <div className="flex justify-between">
-                <span className="text-sm text-gray-600">Total Value:</span>
-                <span className="text-sm font-medium">₹{supplier.totalValue.toLocaleString()}</span>
+                <span className="text-sm text-gray-400">Total Value:</span>
+                <span className="text-sm font-medium text-white">₹{supplier.totalValue.toLocaleString()}</span>
               </div>
             </div>
             
-            <div className="mt-4 pt-4 border-t">
+            <div className="mt-4 pt-4 border-t border-gray-700">
               <div className="w-full bg-gray-200 rounded-full h-2">
                 <div 
                   className="bg-blue-600 h-2 rounded-full" 
@@ -453,14 +453,14 @@ const ReorderingDashboard = () => {
   )
 
   return (
-    <div className="max-w-7xl mx-auto p-6">
+    <div className="max-w-7xl mx-auto p-6 bg-gray-900 min-h-screen">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900">Automated Reordering Dashboard</h1>
-        <p className="mt-2 text-gray-600">Monitor and manage automated parts reordering system</p>
+        <h1 className="text-3xl font-bold text-white">Automated Reordering Dashboard</h1>
+        <p className="mt-2 text-gray-400">Monitor and manage automated parts reordering system</p>
       </div>
 
       {/* Tab Navigation */}
-      <div className="border-b border-gray-200 mb-6">
+      <div className="border-b border-gray-700 mb-6">
         <nav className="-mb-px flex space-x-8">
           {[
             { id: 'overview', name: 'Overview' },
@@ -474,8 +474,8 @@ const ReorderingDashboard = () => {
               onClick={() => setActiveTab(tab.id)}
               className={`py-2 px-1 border-b-2 font-medium text-sm ${
                 activeTab === tab.id
-                  ? 'border-blue-500 text-blue-600'
-                  : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                  ? 'border-[#D4FF00] text-[#D4FF00]'
+                  : 'border-transparent text-gray-400 hover:text-white hover:border-gray-600'
               }`}
             >
               {tab.name}
@@ -493,33 +493,33 @@ const ReorderingDashboard = () => {
 
       {/* Order Details Modal */}
       {selectedOrder && (
-        <div className="fixed inset-0 bg-gray-600 bg-opacity-50 overflow-y-auto h-full w-full z-50">
-          <div className="relative top-20 mx-auto p-5 border w-96 shadow-lg rounded-md bg-white">
+        <div className="fixed inset-0 bg-gray-900 bg-opacity-75 overflow-y-auto h-full w-full z-50">
+          <div className="relative top-20 mx-auto p-5 border border-gray-700 w-96 shadow-lg rounded-md bg-gray-800">
             <div className="mt-3">
-              <h3 className="text-lg font-medium text-gray-900 mb-4">Order Details</h3>
+              <h3 className="text-lg font-medium text-white mb-4">Order Details</h3>
               <div className="space-y-3">
                 <div>
-                  <label className="text-sm font-medium text-gray-700">Order ID:</label>
-                  <p className="text-sm text-gray-900">{selectedOrder.orderId}</p>
+                  <label className="text-sm font-medium text-gray-400">Order ID:</label>
+                  <p className="text-sm text-white">{selectedOrder.orderId}</p>
                 </div>
                 <div>
-                  <label className="text-sm font-medium text-gray-700">Part:</label>
-                  <p className="text-sm text-gray-900">{selectedOrder.partName}</p>
+                  <label className="text-sm font-medium text-gray-400">Part:</label>
+                  <p className="text-sm text-white">{selectedOrder.partName}</p>
                 </div>
                 <div>
-                  <label className="text-sm font-medium text-gray-700">Supplier:</label>
-                  <p className="text-sm text-gray-900">{selectedOrder.supplier.name}</p>
+                  <label className="text-sm font-medium text-gray-400">Supplier:</label>
+                  <p className="text-sm text-white">{selectedOrder.supplier.name}</p>
                 </div>
                 <div>
-                  <label className="text-sm font-medium text-gray-700">Quantity:</label>
-                  <p className="text-sm text-gray-900">{selectedOrder.quantity}</p>
+                  <label className="text-sm font-medium text-gray-400">Quantity:</label>
+                  <p className="text-sm text-white">{selectedOrder.quantity}</p>
                 </div>
                 <div>
-                  <label className="text-sm font-medium text-gray-700">Total Price:</label>
-                  <p className="text-sm text-gray-900">₹{selectedOrder.totalPrice.toLocaleString()}</p>
+                  <label className="text-sm font-medium text-gray-400">Total Price:</label>
+                  <p className="text-sm text-white">₹{selectedOrder.totalPrice.toLocaleString()}</p>
                 </div>
                 <div>
-                  <label className="text-sm font-medium text-gray-700">Status:</label>
+                  <label className="text-sm font-medium text-gray-400">Status:</label>
                   <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${getStatusColor(selectedOrder.status)}`}>
                     {selectedOrder.status}
                   </span>
@@ -528,7 +528,7 @@ const ReorderingDashboard = () => {
               <div className="flex justify-end space-x-3 mt-6">
                 <button
                   onClick={() => setSelectedOrder(null)}
-                  className="px-4 py-2 bg-gray-300 text-gray-700 rounded-lg hover:bg-gray-400"
+                  className="px-4 py-2 bg-gray-600 text-gray-300 rounded-lg hover:bg-gray-500 hover:text-white"
                 >
                   Close
                 </button>

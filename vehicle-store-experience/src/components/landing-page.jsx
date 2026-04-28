@@ -70,7 +70,7 @@ export function LandingPage({ onGetStarted }) {
             {/* Large Brand Text */}
             <div className="flex items-end gap-3 md:gap-4">
               <h2 className="text-6xl font-bold tracking-tight text-white md:text-7xl lg:text-8xl xl:text-9xl leading-none">
-                reznico care 
+                Reznico Care 
               </h2>
               <button
                 onClick={() => setIsVideoPlaying(!isVideoPlaying)}

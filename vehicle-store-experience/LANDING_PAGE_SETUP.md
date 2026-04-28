@@ -6,7 +6,7 @@ To complete the landing page setup, you need to add your hero video:
 
 1. **Add your video file** to the `public` folder in your project:
    ```
-   vehicle-store-experience/
+   reznico-care/
    └── public/
        ├── hero-video.mp4  (your video file)
        └── hero-poster.jpg  (optional poster image)

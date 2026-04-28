@@ -17,6 +17,14 @@ import { ScheduleTracker } from '@/components/schedule-tracker'
 import { Reports } from '@/components/reports'
 import { Inventory } from '@/components/inventory'
 import { Invoices } from '@/components/invoices'
+import { PartsAnalyticsDashboard } from '@/components/parts-analytics-dashboard'
+import ReorderingDashboard from '@/components/reordering-dashboard'
+import { CustomerPortal } from '@/components/customer-portal'
+import { BarcodeScanner } from '@/components/barcode-scanner'
+import { MobileTechnicianApp } from '@/components/mobile-technician-app'
+import { PredictiveMaintenance } from '@/components/predictive-maintenance'
+import { WarrantyTracking } from '@/components/warranty-tracking'
+import { SupplierPerformanceDashboard } from '@/components/supplier-performance-dashboard'
 import { CustomerOnboarding } from '@/components/customer-onboarding'
 
 export function AdminLayout({ currentView, setCurrentView }) {
@@ -44,6 +52,14 @@ export function AdminLayout({ currentView, setCurrentView }) {
                     {currentView === 'reports' && 'Reports & Analytics'}
                     {currentView === 'inventory' && 'Inventory Management'}
                     {currentView === 'invoices' && 'Invoices & Billing'}
+                    {currentView === 'parts-analytics' && 'Parts Analytics'}
+                    {currentView === 'reordering' && 'Automated Reordering'}
+                    {currentView === 'customer-portal' && 'Customer Portal'}
+                    {currentView === 'barcode-scanner' && 'Barcode Scanner'}
+                    {currentView === 'mobile-app' && 'Mobile Technician App'}
+                    {currentView === 'predictive-maintenance' && 'Predictive Maintenance'}
+                    {currentView === 'warranty-tracking' && 'Warranty Tracking'}
+                    {currentView === 'supplier-performance' && 'Supplier Performance'}
                   </BreadcrumbPage>
                 </BreadcrumbItem>
               </BreadcrumbList>
@@ -78,6 +94,14 @@ export function AdminLayout({ currentView, setCurrentView }) {
           {currentView === 'reports' && <Reports onNavigate={setCurrentView} />}
           {currentView === 'inventory' && <Inventory onNavigate={setCurrentView} />}
           {currentView === 'invoices' && <Invoices onNavigate={setCurrentView} />}
+          {currentView === 'parts-analytics' && <PartsAnalyticsDashboard onNavigate={setCurrentView} />}
+          {currentView === 'reordering' && <ReorderingDashboard onNavigate={setCurrentView} />}
+          {currentView === 'customer-portal' && <CustomerPortal onNavigate={setCurrentView} />}
+          {currentView === 'barcode-scanner' && <BarcodeScanner onNavigate={setCurrentView} />}
+          {currentView === 'mobile-app' && <MobileTechnicianApp onNavigate={setCurrentView} />}
+          {currentView === 'predictive-maintenance' && <PredictiveMaintenance onNavigate={setCurrentView} />}
+          {currentView === 'warranty-tracking' && <WarrantyTracking onNavigate={setCurrentView} />}
+          {currentView === 'supplier-performance' && <SupplierPerformanceDashboard onNavigate={setCurrentView} />}
           {currentView === 'customer-onboarding' && (
             <div className="p-6 bg-gray-950">
               <div className="max-w-4xl mx-auto space-y-6">
